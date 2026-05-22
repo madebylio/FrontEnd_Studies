@@ -1,0 +1,202 @@
+.about-layout{
+
+    min-height: auto;
+
+    align-items: start;
+
+    max-width: 1400px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns:
+    420px
+    minmax(600px, 850px);
+
+    gap: 5rem;
+
+    padding: 1.5rem var(--gap-lg);
+
+    padding-top: 3rem;
+
+    border-radius: 30px;
+
+    background:
+    rgba(255,255,255,.03);
+
+    backdrop-filter:
+    blur(6px);
+    
+}
+
+.about-layout .hero-card{
+
+    width: 420px;
+
+    max-width: 420px;
+
+    height: fit-content;
+
+    justify-self: start;
+
+    align-self: start;
+}
+
+.about-content{
+
+    padding-top: 4rem;
+
+    max-width: 850px;
+}
+
+.about-tag{
+
+    display: inline-block;
+
+    color: var(--clr-green);
+
+    letter-spacing: 3px;
+
+    margin-bottom: 1rem;
+
+    font-size: .85rem;
+}
+
+.about-content h2{
+
+    font-size: clamp(
+        0.5rem,
+        4vw,
+        4rem
+    );
+
+    line-height: 1.1;
+
+    margin-bottom: 2rem;
+
+    color: white;
+}
+
+.about-content p{
+
+    margin-bottom: 1.5rem;
+
+    line-height: 1.9;
+
+    color: var(--clr-text-muted);
+
+    max-width: 750px;
+}
+
+.credit-icons{
+
+    position: absolute;
+
+    top: 20px;
+    right: 20px;
+
+    display: flex;
+}
+
+.credit-icons a{
+
+    color: var(--clr-green-dark);
+
+    font-size: 1.4rem;
+
+    transition: .3s;
+}
+
+.credit-icons a:hover{
+
+    transform: scale(1.15);
+
+    color: white;
+}
+
+@media (max-width: 1200px){
+
+    .about-layout{
+
+        grid-template-columns: 1fr;
+
+        gap: 3rem;
+    }
+
+    .about-layout .hero-card{
+
+        width: 420px;
+
+        max-width: 100%;
+
+        margin: 0 auto;
+    }
+
+    .about-content{
+
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px){
+
+    .about-layout{
+
+        gap: 2rem;
+
+        padding: 2rem 1rem;
+    }
+
+    .about-layout .hero-card{
+
+        position: relative;
+
+        top: auto;
+
+        z-index: auto;
+
+        grid-column: auto;
+
+        width: 100%;
+
+        max-width: 420px;
+
+        height: auto;
+
+        margin: 0 auto;
+    }
+
+    .about-layout .profile-image{
+
+        width: 170px;
+
+        height: 170px;
+    }
+
+    .about-content{
+
+        padding-top: 0;
+    }
+}
+
+@media (max-width: 480px){
+
+    .about-layout .hero-card{
+
+        width: 100%;
+
+        height: auto;
+
+        padding: 4rem 1rem 1.5rem;
+    }
+
+    .about-layout .profile-image{
+
+        width: 140px;
+
+        height: 140px;
+
+        margin: .5rem auto 0;
+    }
+}

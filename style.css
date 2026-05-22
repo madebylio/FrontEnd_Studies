@@ -1,0 +1,692 @@
+/* =============================================
+   RESET & BASE
+   ============================================= */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+ul {
+  list-style: none;
+}
+
+/* =============================================
+   CSS VARIABLES
+   ============================================= */
+
+:root {
+  /* Colors */
+  --clr-bg:           #1e1c24;
+  --clr-surface:      rgba(255, 255, 255, 0.04);
+  --clr-border:       rgba(255, 255, 255, 0.08);
+  --clr-border-green: rgba(91, 166, 117, 0.35);
+
+  --clr-green:        #ABDD64;
+  --clr-green-dark:   #5BA675;
+  --clr-pink:         #D46EB3;
+  --clr-purple:       #7B5480;
+  --clr-text:         #d5cddd;
+  --clr-text-muted:   #c6b7cc;
+
+  /* Typography */
+  --font-display: Tahoma, "Arial Narrow", sans-serif;
+  --font-body:    "Arial Rounded MT Bold", "Comic Sans MS", sans-serif;
+
+  /* Spacing */
+  --gap-sm:  1rem;
+  --gap-md:  1.5rem;
+  --gap-lg:  2rem;
+  --gap-xl:  4rem;
+
+  /* Radius */
+  --radius-sm: 16px;
+  --radius-md: 25px;
+  --radius-lg: 40px;
+
+  /* Shadows */
+  --shadow-card: 0 20px 60px rgba(0, 0, 0, 0.3);
+  --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.35);
+
+  /* Transitions */
+  --transition: 0.35s ease;
+}
+
+html {
+  background-color: var(--clr-bg);
+}
+
+/* =============================================
+   BODY
+   ============================================= */
+
+body {
+
+  position: relative;
+  isolation: isolate;
+  background-color: var(--clr-bg);
+  color: var(--clr-text);
+  font-family: var(--font-body);
+  min-height: 100vh;
+  padding: var(--gap-lg);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background-image: url("assents/Images/ChatGPT Image 20 de mai. de 2026, 15_49_19.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+
+body > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* =============================================
+   LAYOUT PRINCIPAL
+   Três colunas em telas grandes,
+   colapsa para uma coluna em telas menores
+   ============================================= */
+
+.layout {
+  width: 100%;
+  max-width: 1800px;
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr 0.9fr;
+  gap: var(--gap-lg);
+  align-items: start;
+}
+
+/* =============================================
+   HERO CARD
+   ============================================= */
+
+.hero-card {
+  position: relative;
+  background: var(--clr-green);
+  border: 7px solid var(--clr-green-dark);
+  border-radius: var(--radius-lg);
+  padding: 5rem var(--gap-lg) var(--gap-lg);
+  text-align: center;
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  position: sticky;
+  top: 40px;
+}
+
+/* Links de crédito / rede social no canto */
+.credit-icons {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  gap: 0.8rem;
+}
+
+.credit-icons a {
+  color: var(--clr-green-dark);
+  font-size: 1.2rem;
+  transition: transform var(--transition);
+}
+
+.credit-icons a:hover {
+  transform: scale(1.15);
+}
+
+/* Foto de perfil */
+.profile-image {
+  width: 320px;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 20px;
+  border: 7px solid var(--clr-green-dark);
+  margin-top: 0.5rem;
+  background: #fff;
+  display: inline-block;
+}
+
+/* Nome */
+.hero-card h1 {
+  margin-top: 1.5rem;
+  font-size: clamp(1.6rem, 3vw, 3rem);
+  text-transform: uppercase;
+  font-family: var(--font-display);
+  color: var(--clr-bg);
+  line-height: 1.15;
+}
+
+/* Cargo / subtítulo */
+.subtitle {
+  color: var(--clr-purple);
+  font-weight: bold;
+  margin-top: 0.5rem;
+  font-size: clamp(0.85rem, 1.5vw, 1rem);
+}
+
+/* Descrição curta */
+.description {
+  max-width: 480px;
+  margin-inline: auto;
+  margin-top: 1.5rem;
+  line-height: 1.75;
+  color: var(--clr-bg);
+  font-size: clamp(0.88rem, 1.3vw, 1rem);
+}
+
+/* SOCIAL LINKS */
+
+.social-links{
+
+  display: flex;
+
+  justify-content: center;
+
+  gap: 1rem;
+
+  margin-top: 2rem;
+
+  flex-wrap: wrap;
+}
+
+/* BUTTON */
+
+.social-btn{
+
+  width: 65px;
+  height: 65px;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 20px;
+
+  text-decoration: none;
+
+  font-size: 1.8rem;
+
+  color: #7B5480;
+
+  background:
+  rgba(255,255,255,.08);
+
+  border:
+  3px solid rgba(91,166,117,.5);
+
+  backdrop-filter: blur(10px);
+
+  transition:
+  transform .3s ease,
+  background .3s ease,
+  border .3s ease;
+}
+
+/* HOVER */
+
+.social-btn:hover{
+
+  transform:
+  translateY(-6px)
+  scale(1.05);
+
+  background:
+  rgba(212,110,179,.15);
+
+  border-color:
+  #D46EB3;
+
+  color: white;
+
+  box-shadow:
+  0 10px 25px rgba(212,110,179,.25);
+}
+
+/* Ícones decorativos */
+.nature-icons {
+  display: flex;
+  justify-content: center;
+  gap: var(--gap-sm);
+  font-size: 2rem;
+  color: var(--clr-purple);
+  margin-top: var(--gap-lg);
+}
+
+/* =============================================
+   SEÇÃO DE PROJETOS
+   ============================================= */
+
+.projects-section {
+  position: relative;
+  margin-top: 0.5rem;
+  padding: var(--gap-xl) var(--gap-lg);
+  border-radius: 50px;
+  background: rgba(171, 221, 100, 0.07);
+  border: 3px solid var(--clr-border-green);
+  overflow: hidden;
+}
+
+/* Radial decorativo de fundo */
+.projects-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(212, 110, 179, 0.1),
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+/* Cabeçalho da seção */
+.section-header {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-header h2 {
+  font-size: clamp(1.8rem, 3vw, 3rem);
+  margin-top: 1rem;
+  text-transform: uppercase;
+  font-family: var(--font-display);
+  color: var(--clr-green);
+}
+
+.section-header p {
+  margin-top: 1rem;
+  color: var(--clr-text-muted);
+  max-width: 500px;
+  margin-inline: auto;
+  line-height: 1.75;
+  font-size: clamp(0.88rem, 1.3vw, 1rem);
+}
+
+/* Grid dos cards de projeto */
+.project-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--gap-md);
+}
+
+/* Card individual */
+.project-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  border: 4px solid var(--clr-green-dark);
+  aspect-ratio: 1 / 1;
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition);
+}
+
+.project-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+/* Overlay com nome do projeto */
+.project-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.78), transparent);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.project-overlay h3 {
+  color: #fff;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Hover no card */
+.project-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: var(--shadow-hover);
+}
+
+.project-card:hover img {
+  transform: scale(1.08);
+}
+
+.project-card:hover .project-overlay {
+  opacity: 1;
+}
+
+
+/* ========================= */
+/* SIDE ART */
+/* ========================= */
+
+.side-art {
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+
+    min-height: 30px;
+}
+
+/* PAPER */
+
+.paper-note {
+
+  position: absolute;
+
+  right: 9%;
+  top: -1200%;
+
+  transform:
+  translateY(-20%)
+  rotate(-6deg);
+
+  width: 620px;
+
+  padding: 6rem;
+
+  border-radius: 32px;
+
+  background:
+  rgba(25,20,40,.45);
+
+  backdrop-filter:
+  blur(18px);
+
+  border:
+  1px solid rgba(255,255,255,.08);
+
+  box-shadow:
+  0 20px 60px rgba(0,0,0,.35),
+  0 0 30px rgba(212,110,179,.12);
+
+  overflow: hidden;
+
+  animation:
+  floatPaper 7s ease-in-out infinite;
+}
+
+/* LIGHT EFFECT */
+
+.paper-note::before{
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+    linear-gradient(
+        135deg,
+        rgba(255,255,255,.06),
+        transparent 40%
+    );
+
+    pointer-events: none;
+}
+
+/* ABOUT TAG */
+
+.paper-tag {
+
+    display: inline-block;
+
+    margin-bottom: 1.5rem;
+
+    font-size: .85rem;
+
+    font-weight: bold;
+
+    letter-spacing: 4px;
+
+    color: #9effb0;
+}
+
+/* TITLE */
+
+.typing-text {
+
+    font-size: 3rem;
+
+    line-height: 1.05;
+
+    margin-bottom: 1.5rem;
+
+    color: white;
+
+    font-weight: 900;
+
+    text-shadow:
+    0 0 18px rgba(255,255,255,.25);
+
+    animation:
+    glowText 5s ease-in-out infinite;
+}
+
+/* PARAGRAPH */
+
+.paper-note p {
+
+    color:
+    rgba(255,255,255,.72);
+
+    line-height: 1.8;
+
+    font-size: 1rem;
+
+    max-width: 90%;
+}
+
+/* FLOATING */
+
+@keyframes floatPaper {
+
+    0% {
+
+        transform:
+        translateY(-50%)
+        rotate(-6deg);
+    }
+
+    50% {
+
+        transform:
+        translateY(calc(-50% - 16px))
+        rotate(-4deg);
+    }
+
+    100% {
+
+        transform:
+        translateY(-50%)
+        rotate(-6deg);
+    }
+}
+/* ==============================
+    PAGE ANIMATION 
+    ============================= */
+
+.portfolio-grid,
+.about-layout{
+    opacity: 0;
+    transform: translateX(50px);
+
+    animation: pageIn .6s forwards;
+}
+
+@keyframes pageIn{
+
+    to{
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+}
+
+/* ========================= */
+/* HIDE ON SMALLER SCREENS */
+/* ========================= */
+
+@media (max-width: 1200px){
+
+  .side-art{
+
+    display: none;
+  }
+  
+}
+
+/* =============================================
+   RESPONSIVO — TABLET (≤ 1200px)
+   Duas colunas, hero ocupa topo inteiro
+   ============================================= */
+
+@media (max-width: 1200px){
+
+  .hero-card {
+
+    position: center;
+    z-index: 5;
+    grid-column: 1 / -2; /* ocupa as duas colunas */
+    padding: 5rem var(--gap-lg) var(--gap-lg);
+  }
+
+  .paper-note{
+
+    position: absolute;
+
+    right: 9%;
+
+    width: min(90%, 500px);
+
+    max-width: 480px;
+    z-index: 2;
+
+    transform: rotate(-2deg);
+  }
+  
+}
+
+
+/* =============================================
+   RESPONSIVO — TABLET (≤ 1024px)
+   Duas colunas, hero ocupa topo inteiro
+   ============================================= */
+
+@media (max-width: 1024px) {
+  .layout {
+    grid-template-columns: 1fr 1fr;
+    padding: var(--gap-sm);
+  }
+
+  .hero-card {
+    position: center;
+    z-index: 5;
+    grid-column: 1 / -1; /* ocupa as duas colunas */
+    padding: 5rem var(--gap-lg) var(--gap-lg);
+  }
+
+  .profile-image {
+    width: 190px;
+    height: 190px;
+    margin-top: 0.5rem;
+  }
+  
+}
+
+/* =============================================
+   RESPONSIVO — TABLET PEQUENO (≤ 768px)
+   Uma coluna, tudo empilhado
+   ============================================= */
+
+@media (max-width: 768px) {
+  body {
+    padding: var(--gap-sm);
+  }
+
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-card {
+    padding-top: 4rem;
+  }
+
+  .profile-image {
+    width: 170px;
+    height: 170px;
+    margin-top: 0.5rem;
+  }
+
+  .project-grid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  }
+  
+}
+
+/* =============================================
+   RESPONSIVO — MOBILE (≤ 480px)
+   Ajustes finos para telas pequenas
+   ============================================= */
+
+@media (max-width: 480px) {
+  body {
+    padding: 0.5rem;
+  }
+
+  .hero-card,
+  .projects-section,
+
+  .profile-image {
+    width: 140px;
+    height: 140px;
+    border-width: 7px;
+    margin-top: 1.5rem;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+}
+
+/* =============================================
+   RESPONSIVO — MOBILE PEQUENO (≤ 360px)
+   ============================================= */
+
+@media (max-width: 360px) {
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+}
