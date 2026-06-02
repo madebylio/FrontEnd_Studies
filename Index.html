@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Gustavo Portfolio</title>
 
@@ -17,6 +16,21 @@
 
 <body>
 
+    <header class="top-menu">
+        <a href="Index.html" class="menu-logo">Liobor</a>
+
+        <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="main-navigation">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <nav class="menu-links" id="main-navigation" aria-label="Main navigation">
+            <a href="Index.html" class="active">Home</a>
+            <a href="about.html">About</a>
+            <a href="#projects">Projects</a>
+            <a href="mailto:seuemail@email.com">Contact</a>
+        </nav>
+    </header>
+
     <main class="portfolio-grid">
 
         <main class="layout">
@@ -24,15 +38,17 @@
             <!-- HERO CARD -->
             <section class="hero-card">
 
-                <!-- CREDIT -->
-                <div class="credit-icons">
-                    <a href="Index.html">
-                    <i class="fa-solid fa-house"></i>
-                    </a>
+                <!-- EASTER EGG -->
+                <button class="secret-btn" type="button" aria-label="Unlock creative mode">
+                    <i class="fa-solid fa-info"></i>
+                </button>
 
-                    <a href="about.html" class="about-btn">
-                    <i class="fa-solid fa-circle-info"></i>
-                    </a>
+                <div class="sparkles" aria-hidden="true">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </div>
 
                 <!-- PROFILE IMAGE -->
@@ -46,7 +62,7 @@
                 <h1>Liobor</h1>
 
                 <!-- SUBTITLE -->
-                <p class="subtitle">
+                <p class="subtitle" data-default-text="Creative Developer • Photographer • Editor">
                     Creative Developer • Photographer • Editor
                 </p>
 
@@ -98,6 +114,13 @@
 
             <div class="paper-note">
 
+                <div class="paper-sparkles" aria-hidden="true">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
                 <span class="paper-tag">ABOUT ME</span>
 
                 <h2 class="typing-text">
@@ -117,7 +140,7 @@
         
         <!-- PROJECTS SECTION -->
 
-        <section class="projects-section">
+        <section class="projects-section" id="projects">
 
             <!-- BACKGROUND DECORATION -->
             <div class="burst-bg"></div>
@@ -147,7 +170,7 @@
                 <a href="https://github.com/madebylio/FrontEnd_Studies" class="project-card">
 
                 <img
-                    src="assents/Icons/ChatGPT Image 20 de mai. de 2026, 16_03_41.png"
+                    src="assents/Images/FrontEnd.png"
                     alt="Project"
                 >
 
@@ -161,7 +184,7 @@
                 <a href="#" class="project-card">
 
                 <img
-                    src="https://placehold.co/400x400"
+                    src="assents/Images/Photografy.png"
                     alt="Project"
                 >
 
