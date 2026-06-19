@@ -67,8 +67,8 @@
 
     font-size: clamp(
         0.5rem,
-        4vw,
-        4rem
+        3.4vw,
+        3.4rem
     );
 
     line-height: 1.1;

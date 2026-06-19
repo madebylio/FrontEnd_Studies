@@ -1,0 +1,185 @@
+.photos-page::before {
+  background-image: url("assents/Images/ChatGPT Image 20 de mai. de 2026, 15_49_19.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 1;
+}
+
+.photos-layout {
+  width: min(100%, 1400px);
+  margin: 0 auto;
+  padding: clamp(1.5rem, 4vw, 4rem);
+  border: 3px solid var(--clr-border-green);
+  border-radius: 50px;
+  background:
+    linear-gradient(135deg, rgba(171, 221, 100, 0.05), rgba(212, 110, 179, 0.05)),
+    rgba(30, 28, 36, 0.32);
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+  opacity: 0;
+  transform: translateX(50px);
+  animation: pageIn 0.6s forwards;
+}
+
+.photos-intro {
+  max-width: 760px;
+  margin-bottom: clamp(2rem, 5vw, 4rem);
+}
+
+.photos-tag {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  margin-bottom: 1rem;
+  padding: 0 1rem;
+  border: 1px solid rgba(171, 221, 100, 0.4);
+  border-radius: 999px;
+  color: var(--clr-green);
+  background: rgba(171, 221, 100, 0.08);
+  font-size: 0.78rem;
+  letter-spacing: 3px;
+}
+
+.photos-intro h1 {
+  color: white;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 6vw, 5rem);
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.photos-intro p {
+  max-width: 620px;
+  margin-top: 1.25rem;
+  color: var(--clr-text-muted);
+  line-height: 1.8;
+  font-size: clamp(0.9rem, 1.4vw, 1rem);
+}
+
+.photo-gallery {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-auto-rows: minmax(240px, 30vw);
+  gap: var(--gap-md);
+}
+
+.photo-card {
+  position: relative;
+  min-height: 240px;
+  overflow: hidden;
+  border: 4px solid var(--clr-green-dark);
+  border-radius: var(--radius-md);
+  background: var(--clr-surface);
+  box-shadow: var(--shadow-card);
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition),
+    border-color var(--transition);
+}
+
+.photo-card-large {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.photo-card-wide {
+  grid-column: span 2;
+}
+
+.photo-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.95) contrast(1.04);
+  transition:
+    transform 0.55s ease,
+    filter 0.55s ease;
+}
+
+.photo-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent 58%),
+    radial-gradient(circle at 18% 16%, rgba(171, 221, 100, 0.18), transparent 34%);
+  opacity: 0.95;
+  pointer-events: none;
+}
+
+.photo-caption {
+  position: absolute;
+  left: 1.25rem;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.photo-caption span {
+  color: var(--clr-green);
+  font-size: 0.8rem;
+  letter-spacing: 3px;
+}
+
+.photo-caption h2 {
+  max-width: 70%;
+  color: white;
+  font-family: var(--font-display);
+  font-size: clamp(1.05rem, 2vw, 1.7rem);
+  line-height: 1.05;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+.photo-card:hover {
+  transform: translateY(-8px) scale(1.01);
+  border-color: var(--clr-pink);
+  box-shadow: var(--shadow-hover);
+}
+
+.photo-card:hover img {
+  filter: saturate(1.1) contrast(1.08);
+  transform: scale(1.07);
+}
+
+@media (max-width: 900px) {
+  .photos-layout {
+    border-radius: var(--radius-lg);
+  }
+
+  .photo-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: minmax(220px, 44vw);
+  }
+}
+
+@media (max-width: 560px) {
+  .photos-layout {
+    padding: 2rem 1rem;
+    border-radius: var(--radius-md);
+  }
+
+  .photo-gallery {
+    grid-template-columns: 1fr;
+    grid-auto-rows: minmax(260px, 72vw);
+  }
+
+  .photo-card,
+  .photo-card-large,
+  .photo-card-wide {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .photo-caption {
+    left: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+  }
+}

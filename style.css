@@ -62,6 +62,12 @@ ul {
 
 html {
   background-color: var(--clr-bg);
+  background-image: url("assents/Images/ChatGPT Image 20 de mai. de 2026, 15_49_19.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100%;
 }
 
 /* =============================================
@@ -72,7 +78,7 @@ body {
 
   position: relative;
   isolation: isolate;
-  background-color: var(--clr-bg);
+  background-color: transparent;
   color: var(--clr-text);
   font-family: var(--font-body);
   min-height: 100vh;
@@ -83,7 +89,7 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-  z-index: 0;
+  z-index: -1;
   background-image: url("assents/Images/ChatGPT Image 20 de mai. de 2026, 15_49_19.png");
   background-size: cover;
   background-position: center;
@@ -93,7 +99,6 @@ body::before {
 
 body > * {
   position: relative;
-  z-index: 1;
 }
 
 /* =============================================
@@ -412,6 +417,7 @@ body > * {
   border-radius: 20px;
 
   text-decoration: none;
+  cursor: pointer;
 
   font-size: 1.8rem;
 
@@ -429,6 +435,11 @@ body > * {
   transform .3s ease,
   background .3s ease,
   border .3s ease;
+}
+
+.social-btn:focus-visible {
+  outline: 3px solid rgba(212, 110, 179, 0.65);
+  outline-offset: 4px;
 }
 
 /* HOVER */
@@ -449,6 +460,39 @@ body > * {
 
   box-shadow:
   0 10px 25px rgba(212,110,179,.25);
+}
+
+.copy-toast {
+  position: fixed;
+  left: 50%;
+  top: 1rem;
+  z-index: 20;
+  max-width: min(92vw, 420px);
+  padding: 0.85rem 1rem;
+  border: 1px solid rgba(171, 221, 100, 0.35);
+  border-radius: 18px;
+  color: var(--clr-green);
+  background: rgba(30, 28, 36, 0.92);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 0.45rem) scale(0.98);
+  transition:
+    opacity var(--transition),
+    transform var(--transition);
+}
+
+.copy-toast.is-visible {
+  opacity: 1;
+  transform: translate(-50%, -0.2rem) scale(1);
+}
+
+.copy-toast.is-below {
+  transform: translate(-50%, -0.45rem) scale(0.98);
+}
+
+.copy-toast.is-below.is-visible {
+  transform: translate(-50%, 0.2rem) scale(1);
 }
 
 /* Ícones decorativos */
@@ -705,9 +749,9 @@ body > * {
 
 .typing-text {
 
-    font-size: 3rem;
+    font-size: clamp(1.8rem, 2.6vw, 2.35rem);
 
-    line-height: 1.05;
+    line-height: 1.12;
 
     margin-bottom: 1.5rem;
 
@@ -877,7 +921,7 @@ body > * {
   }
 
   .typing-text {
-    font-size: clamp(2.1rem, 3.4vw, 3rem);
+    font-size: clamp(1.7rem, 2.6vw, 2.2rem);
   }
 }
 
@@ -894,7 +938,7 @@ body > * {
   }
 
   .typing-text {
-    font-size: clamp(1.7rem, 3vw, 2.25rem);
+    font-size: clamp(1.45rem, 2.6vw, 1.85rem);
   }
 
   .paper-note p {
